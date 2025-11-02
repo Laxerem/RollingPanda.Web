@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: whitesmoke;
+    font-family: "Comic Sans MS";
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    height: 6vh;
+    background-color: black;
+    white-space: nowrap;
+
+    .studio-logo {
+        display: flex;
+        align-items: center;
+        gap: 10%;
+        span {
+            color: whitesmoke;
+            font-family: "Comic Sans MS";
+            font-size: clamp(15px, 1vh + 0.6vw, 2vw);
+        }
+        .logo-image {
+            height: 4.5vh;
+        }
+    }
+
+    .site-catalog {
+        display: flex;
+        align-items: center;
+        gap: 1.8vw;
+    }
+}
+
+main {
+    background-color: #0f0f0f;
+    height: 94vh;
+}
