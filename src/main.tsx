@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './assets/style/global.css'
 import './assets/style/fonts.css'
 import Router from './router'
-import Header from './components/header'
+import Header from './components/Header'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -3,19 +3,54 @@
     margin: 0;
 }
 
+html {
+    background-color: black;
+    height: 2000px;
+}
+
 a {
     color: whitesmoke;
-    font-family: "Comic Sans MS";
+    font-family: "Montserrat";
+}
+
+main {
+    /*background: url(paper.png) no-repeat #1C002F;*/
+    background: #1C002F;
+    background-size: cover;
 }
 
 header {
+    position: sticky;
+    top: 0;
+    height: 6.5vh;
+    width: 100%;
+    background: #400468;
+    overflow: hidden; /* важно, чтобы ::before не вылезал */
+
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2%;
-    height: 6vh;
-    background-color: black;
     white-space: nowrap;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("paper.png");
+    background-size: cover;
+
+    mix-blend-mode: soft-light;
+    pointer-events: none; /* чтобы клики проходили */
+    z-index: 1;
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* чтобы контент был поверх blend-а */
+    width: 100%;
+    padding: 0 3%;
 
     .studio-logo {
         display: flex;
@@ -23,22 +58,25 @@ header {
         gap: 10%;
         span {
             color: whitesmoke;
-            font-family: "Comic Sans MS";
-            font-size: clamp(15px, 1vh + 0.6vw, 2vw);
+            font-family: "Barcade";
+            font-size: clamp(5px, 0.5vh + 0.4vw, 1.8vw);
         }
         .logo-image {
-            height: 4.5vh;
+            height: 4.7vh;
         }
+    }
+
+    .links {
+        display: flex;
+        justify-self: center;
+        height: 40%;
+        gap:5%;
     }
 
     .site-catalog {
         display: flex;
         align-items: center;
         gap: 1.8vw;
-    }
-}
-
-main {
-    background-color: #0f0f0f;
-    height: 94vh;
+        font-size: clamp(11px, 0.5vh + 0.64vw, 2vw);
+    }    
 }

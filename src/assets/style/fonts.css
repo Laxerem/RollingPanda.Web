@@ -2,3 +2,18 @@
     font-family: "Comic Sans MS";
     src: url(../fonts/ComicSansMS.ttf);
 }
+
+@font-face {
+    font-family: "Handjet";
+    src: url(../fonts/Handjet.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../fonts/Montserrat.ttf);
+}
+
+@font-face {
+    font-family: "Barcade";
+    src: url(../fonts/Barcade.ttf);
+}
