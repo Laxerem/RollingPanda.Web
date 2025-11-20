@@ -44,8 +44,8 @@ header::before {
 }
 
 .header-content {
-    display: grid;
-    grid-template-columns: max-content 1fr max-content;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 2; /* чтобы контент был поверх blend-а */
@@ -55,7 +55,7 @@ header::before {
     .studio-logo {
         display: flex;
         align-items: center;
-        gap: 10%;
+        gap: 2vw;
         span {
             color: whitesmoke;
             font-family: "Barcade";
@@ -66,17 +66,32 @@ header::before {
         }
     }
 
-    .links {
-        display: flex;
-        justify-self: center;
-        height: 40%;
-        gap:5%;
-    }
-
     .site-catalog {
         display: flex;
         align-items: center;
         gap: 1.8vw;
-        font-size: clamp(11px, 0.5vh + 0.64vw, 2vw);
+        font-size: clamp(12px, 0.6vh + 0.7vw, 2vw);
     }    
+}
+
+.links {
+    position: absolute;
+    height: clamp(1.1vw, 1vh + 1vw, 2.5vw);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5vw;
+
+    img {
+        transition: 0.5s;
+    }
+
+    img:hover {
+        transform: scale(1.15) rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+.mob {
+    padding-top: 10px;
 }
