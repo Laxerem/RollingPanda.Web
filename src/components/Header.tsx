@@ -1,40 +1,78 @@
-import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import type React from "react"
 import { useEffect, useState } from "react";
 
-const links_list = {
-    "telegram.svg": "",
-    "youtube.svg": "",
-    "tic-tok.svg": "",
-    "steam.svg": "",
-    "twich.svg": ""
-};
+interface IHeaderCatalog {
+    menu: {
+        [name:string]: string
+    },
+    links: {
+        [image:string]: string
+    }
+}
+
+const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu, links}) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
+
+
+    return (
+        <div className="header-catalog-mobile">
+            <div className="catalog-icon" onClick={() => {setIsOpen(!isOpen)}} />
+            {isOpen ? (
+                <div className="menu-catalog">
+                    {Object.keys(menu).map((key, index) => 
+                        <span key={index}>{key}</span>
+                    )}
+                    <div className="menu-links">
+                        {Object.keys(links).map((key, index) => 
+                            <img key={index} src={`${key}`} />
+                        )}
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
+        </div>
+    )
+}
 
 const Header: React.FC = () => {
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const [width, setWidth] = useState(window.innerWidth)
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-        console.log(event)
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
+    const [width, setWidth] = useState<number>(window.innerWidth);
+    const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth)
+        const handleResize = () => {
+            setWidth(window.innerWidth)
+        }
+
         window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+        
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+        
     }, [])
 
-    const isMobile = width < 770;
+    useEffect(() => {
+        setIsMobile(width < 750)
+    }, [width])
 
-    const links = ["Главная", "О нас", "Анонсы", "Игры", "Контакты"];
+    // Data
+    const menu = {
+        "Главная": "",
+        "О нас": "",
+        "Анонсы": "",
+        "Игры": "",
+        "Контакты": ""
+    }
 
+    const links = {
+        "telegram.svg": "",
+        "youtube.svg": "",
+        "tic-tok.svg": "",
+        "steam.svg": "",
+        "twich.svg": ""
+    };
 
     return (
         <header>
@@ -44,62 +82,11 @@ const Header: React.FC = () => {
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
-                    <>
-                    <IconButton
-                        onClick={handleClick}
-                        size="large"
-                        edge="end"
-                        color="inherit"
-                    >
-                        <img src="menu.svg"></img>
-                    </IconButton>
-                    <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        slotProps={{
-                        list: {
-                            'aria-labelledby': 'basic-button',
-                        },
-                        paper: {
-                            sx: {
-                                backgroundColor: "#1c002f",
-                                color: "white",
-                                width: "20vw",
-                                borderRadius: "30px",
-                                border: "solid #da81f8 1.5px",
-                                padding: "1%",
-                            }
-                        }
-                        }}
-                        className="menu-list"
-                        disableScrollLock
-                    >
-                        {links.map((link, index) => (
-                            <MenuItem 
-                                key={index}
-                                onClick={handleClose}
-                                sx= {{
-                                    fontFamily: "Montserrat"
-                                }}
-                            >
-                                {link}
-                            </MenuItem>
-                        ))}
-                        <MenuItem>
-                        <div className="links mob">
-                            {Object.keys(links_list).map((key, index) => 
-                                <img key={index} src={key} height={"100%"}/>
-                            )}
-                        </div>
-                        </MenuItem>
-                    </Menu>
-                    </>
+                    <HeaderMobileCatalog menu={menu} links={links} />
                 ) : (
                     <>
                     <div className="links">
-                        {Object.keys(links_list).map((key, index) => 
+                        {Object.keys(links).map((key, index) => 
                             <img key={index} src={key}/>
                         )}
                     </div>

@@ -25,7 +25,6 @@ header {
     height: 6.5vh;
     width: 100%;
     background: #400468;
-    overflow: hidden; /* важно, чтобы ::before не вылезал */
 
     display: flex;
     white-space: nowrap;
@@ -52,26 +51,27 @@ header::before {
     width: 100%;
     padding: 0 3%;
 
-    .studio-logo {
-        display: flex;
-        align-items: center;
-        gap: 2vw;
-        span {
-            color: whitesmoke;
-            font-family: "Barcade";
-            font-size: clamp(5px, 0.5vh + 0.4vw, 1.8vw);
-        }
-        .logo-image {
-            height: 4.7vh;
-        }
-    }
-
     .site-catalog {
         display: flex;
         align-items: center;
         gap: 1.8vw;
         font-size: clamp(12px, 0.6vh + 0.7vw, 2vw);
     }    
+}
+
+.studio-logo {
+        display: flex;
+        align-items: center;
+        gap: 2vw;
+        span {
+            color: whitesmoke;
+            font-family: "Barcade";
+            font-size: clamp(9px, 0.6vh + 0.4vw, 1.8vw);
+        }
+    }
+
+.logo-image {
+    height: 4.7vh;
 }
 
 .links {
@@ -92,6 +92,64 @@ header::before {
     }
 }
 
+.header-catalog-mobile {
+    height: 100%;
+    width: 5vw;
+}
+
+.catalog-icon {
+    position: absolute;
+    right: 0.1vw;
+    background: url(menu.svg) center no-repeat;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.menu-catalog {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    padding: 20px 20px;
+    border-radius: 25px;
+    border: solid #ca78e6 2px;
+    top: 6.5vh;
+    right: 0.1vw;
+    background-color: #1c002f;
+    color: white;
+    gap: 7px;
+    span {
+        font-family: 'Montserrat';
+        cursor: pointer;
+    }
+    img {
+        height: 100%;
+        width: 20px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    img:hover {
+        transform: scale(1.15) rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+.menu-links {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
 .mob {
     padding-top: 10px;
+}
+
+@media(max-width: 600px) {
+    .studio-logo {
+        gap: 5vw;
+    }
+    .logo-image {
+        height: 4vh;
+    }
 }
