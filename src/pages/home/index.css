@@ -1,3 +1,15 @@
+.home_preview::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(paper.png);
+    background-size: cover;
+
+    mix-blend-mode: soft-light;
+    pointer-events: none; /* чтобы клики проходили */
+    z-index: 1;
+}
+
 .home_preview {
     display: flex;
     align-items: center;
@@ -28,6 +40,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
 
 .preview-section:first-child {
     width: 40%;

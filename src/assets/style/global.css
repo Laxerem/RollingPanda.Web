@@ -10,7 +10,7 @@ html {
 
 a {
     color: whitesmoke;
-    font-family: "Montserrat";
+    font-family: "Handjet";
 }
 
 main {
@@ -55,7 +55,7 @@ header::before {
         display: flex;
         align-items: center;
         gap: 1.8vw;
-        font-size: clamp(12px, 0.6vh + 0.7vw, 2vw);
+        font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
     }    
 }
 
@@ -119,7 +119,7 @@ header::before {
     color: white;
     gap: 7px;
     span {
-        font-family: 'Montserrat';
+        font-family: 'Handjet';
         cursor: pointer;
     }
     img {
