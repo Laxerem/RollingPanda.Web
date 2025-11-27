@@ -1,5 +1,5 @@
 import type React from "react"
-import './index.css'
+import './index.scss'
 import HomePreview from "./components/HomePreview"
 
 const HomePage: React.FC = () => {

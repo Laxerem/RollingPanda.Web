@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './assets/style/global.css'
-import './assets/style/fonts.css'
+import './assets/style/global.scss'
+import './assets/style/fonts.scss'
 import Router from './router'
 import Header from './components/Header'
 

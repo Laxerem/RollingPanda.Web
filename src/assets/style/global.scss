@@ -1,3 +1,15 @@
+/* ШРИФТЫ */
+$header-catalog-font: "Handjet";
+$studio-name-font: "Barcade";
+
+/* ЦВЕТА */
+$main-text-color: whitesmoke;
+
+/* РАЗМЕРЫ  */
+$catalog-font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
+$studio-logo-font-size: clamp(9px, 0.6vh + 0.4vw, 1.8vw);
+$links-size: clamp(1.1vw, 1vh + 1vw, 2.5vw);
+
 * {
     padding: 0;
     margin: 0;
@@ -9,8 +21,8 @@ html {
 }
 
 a {
-    color: whitesmoke;
-    font-family: "Handjet";
+    color: $main-text-color;
+    font-family: $header-catalog-font;
 }
 
 main {
@@ -55,7 +67,7 @@ header::before {
         display: flex;
         align-items: center;
         gap: 1.8vw;
-        font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
+        font-size: $catalog-font-size;
     }    
 }
 
@@ -64,9 +76,9 @@ header::before {
         align-items: center;
         gap: 2vw;
         span {
-            color: whitesmoke;
-            font-family: "Barcade";
-            font-size: clamp(9px, 0.6vh + 0.4vw, 1.8vw);
+            color: $main-text-color;
+            font-family: $studio-name-font;
+            font-size: $studio-logo-font-size;
         }
     }
 
@@ -76,7 +88,7 @@ header::before {
 
 .links {
     position: absolute;
-    height: clamp(1.1vw, 1vh + 1vw, 2.5vw);
+    height: $links-size;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -119,7 +131,7 @@ header::before {
     color: white;
     gap: 7px;
     span {
-        font-family: 'Handjet';
+        font-family: $header-catalog-font;
         cursor: pointer;
     }
     img {
