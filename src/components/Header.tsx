@@ -13,8 +13,6 @@ interface IHeaderCatalog {
 const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu, links}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
-
-
     return (
         <div className="header-catalog-mobile">
             <div className="catalog-icon" onClick={() => {setIsOpen(!isOpen)}} />

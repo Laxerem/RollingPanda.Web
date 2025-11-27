@@ -40,6 +40,7 @@ header {
 
     display: flex;
     white-space: nowrap;
+    z-index: 1000;
 }
 
 header::before {
