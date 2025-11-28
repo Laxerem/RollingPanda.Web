@@ -69,7 +69,16 @@ header::before {
         align-items: center;
         gap: 1.8vw;
         font-size: $catalog-font-size;
-    }    
+
+        a {
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: rgb(187, 187, 187);
+        }
+    }
 }
 
 .studio-logo {

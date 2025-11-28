@@ -69,8 +69,8 @@ const LittleAbout: React.FC = () => {
 
             // Получаем коэфициент относительно базовой ширины
             let r = currentWidth / BASE_SCREEN_WIDTH;
-            if (r < 0.3) {
-                r = 0.3
+            if (r < 0.4) {
+                r = 0.4
             }
 
             setRatio(r);
