@@ -56,7 +56,11 @@ const AboutBlock: React.FC<IAboutBlockProps> = ({content, ratio}) => {
     )
 }
 
-const LittleAbout: React.FC = () => {
+interface LittleAboutProps {
+    minimal_ratio: number
+}
+
+const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     const [ratio, setRatio] = useState<number>(1)
     
     const onButtonHandler = () => {
@@ -69,8 +73,8 @@ const LittleAbout: React.FC = () => {
 
             // Получаем коэфициент относительно базовой ширины
             let r = currentWidth / BASE_SCREEN_WIDTH;
-            if (r < 0.4) {
-                r = 0.4
+            if (r < minimal_ratio) {
+                r = minimal_ratio
             }
 
             setRatio(r);
@@ -83,10 +87,16 @@ const LittleAbout: React.FC = () => {
     }, []);
 
     return (
-        <div className="little_about">
-            {blocks_content.map((content) => (
-                <AboutBlock content={content} ratio={ratio} />
-            ))}
+        <div className="about-content">
+            <div className="about-content-heading">
+                <h1>Немного</h1>
+                <h1>Про нас</h1>
+            </div>
+            <div className="little_about">
+                {blocks_content.map((content) => (
+                    <AboutBlock content={content} ratio={ratio} />
+                ))}
+            </div>
         </div>
     )
 }

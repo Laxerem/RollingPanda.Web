@@ -32,9 +32,9 @@ const PreviewButton: React.FC<IPreviewButtonProps> = ({ ratio, text, onClick }) 
                 cursor: "pointer",
             }}
         >
-            <p className="button-text">
+            <h1 className="button-text">
                 {text}    
-            </p>
+            </h1>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 /* ШРИФТЫ */
-$header-catalog-font: "Handjet";
-$studio-name-font: "Barcade";
+$second_font: "Handjet";
+$main-font: "Barcade";
 
 /* ЦВЕТА */
 $main-text-color: whitesmoke;
@@ -10,19 +10,33 @@ $catalog-font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
 $studio-logo-font-size: clamp(9px, 0.6vh + 0.4vw, 1.8vw);
 $links-size: clamp(1.1vw, 1vh + 1vw, 2.5vw);
 
+$footer-heading-font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
+
 * {
     padding: 0;
     margin: 0;
+    color: $main-text-color;
 }
 
 html {
-    background-color: black;
-    height: 2000px;
+    background-color: #1c002f;
 }
 
 a {
     color: $main-text-color;
-    font-family: $header-catalog-font;
+    font-family: $second_font;
+}
+
+h1 {
+    font-family: $main-font;
+}
+
+h2 {
+    font-family: $second_font;
+}
+
+p {
+    font-family: $second_font;
 }
 
 main {
@@ -87,7 +101,7 @@ header::before {
         gap: 2vw;
         span {
             color: $main-text-color;
-            font-family: $studio-name-font;
+            font-family: $main-font;
             font-size: $studio-logo-font-size;
         }
     }
@@ -141,7 +155,7 @@ header::before {
     color: white;
     gap: 7px;
     span {
-        font-family: $header-catalog-font;
+        font-family: $second_font;
         cursor: pointer;
     }
     img {
@@ -166,6 +180,71 @@ header::before {
 .mob {
     padding-top: 10px;
 }
+
+footer {
+    height: 15vh;
+    background-color: #400468;
+    padding: 1%;
+}
+
+.footer-content {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    height: 100%;
+    width: 100%;
+
+    >div {
+        height: 100%;
+    }
+}
+
+.footer-preview {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap:2%;
+
+    img {
+        height: 10vh;
+    }
+}
+
+.footer-preview-text {
+    height: 80%;
+    h1  {
+        font-size: $footer-heading-font-size;
+    }
+    align-self: flex-start;
+}
+
+.circular-text {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 200px;
+  position: relative;
+  height: 35vh;
+  font-weight: bold;
+  color: #da81f8;
+  font-weight: 900;
+  text-align: center;
+  font-family: $main-font;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+}
+
+.circular-text span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 30px;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+}
+
 
 @media(max-width: 600px) {
     .studio-logo {

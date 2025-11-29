@@ -1,15 +1,21 @@
+@use "/src/assets/style/global.scss";
+
 /* ШРИФТЫ */
-$logo-preview-font: "Barcade";
-$preview-text-font: "Montserrat";
 $button-font: "Handjet";
 
 /* РАЗМЕРЫ */
 $logo-preview-font-size: clamp(20px, 2.5vh + 3vw, 5vw);
-$preview-text-size: clamp(10px, 0.9vh + 1.1vw, 1.6vw);
-$button-font-size: clamp(11px, 1vh + 1vw, 1.6vw);
+$preview-text-size: clamp(15px, 1vh + 1.5vw, 2.2vw);
+$button-font-size: clamp(10px, 1vh + 1.5vw, 1.5vw);
 
-$about-heading-font-size: clamp(10px, 0.9vh + 1.1vw, 1.5vw);
-$about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
+$about-heading-font-size: clamp(12px, 1vh + 1.3vw, 2.2vw);
+$about-block-heading-font-size: clamp(10px, 0.9vh + 1.1vw, 1.3vw);
+$about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
+
+.preview-image {
+    background: url(full_preview1.png) no-repeat;
+    background-size: 100%;
+}
 
 .home_preview {
     display: flex;
@@ -19,19 +25,15 @@ $about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
     color: whitesmoke;
     padding: 5% 0;
     min-height: 200px;
-    background: url(full_preview1.png) no-repeat;
-    background-size: 100%;
 }
 
 .studio-name {
     h1 {
-        font-family: $logo-preview-font;
         line-height: 140%;
         letter-spacing: 0.4vw;
         font-size: $logo-preview-font-size;
     }
     h2 {
-        font-family: $preview-text-font;
         font-weight: 500;
         margin-top: 2%;
         font-size: $preview-text-size;
@@ -43,6 +45,7 @@ $about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
     justify-content: center;
     flex-direction: column;
     min-height: 150px;
+    white-space: nowrap;
 }
 
 
@@ -64,25 +67,66 @@ $about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-family: $logo-preview-font;
     font-size: $button-font-size;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4%;
+    background: url(paper2.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+    .about-content-heading {
+        display: flex;
+        justify-content: center;
+        white-space: nowrap;
+
+        >h1 {
+            font-size: $about-heading-font-size;
+        }
+
+        >h1:first-child {
+            margin-bottom: 1%;
+        }
+        >h1:nth-child(2) {
+            margin-top: 10%;
+        }
+    }
 }
 
 .little_about {
     display: grid;
     position: relative;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, auto);
     justify-items: center;
-    gap: 5% 0;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 4%;
+    gap: 2vw;
     z-index: 100;
-    padding: 4%;
-    background: url(paper2.png) 100% 100% no-repeat;
+    text-align: center;
 }
 
 .about-block {
     display: inline-block;
     background: url(about-block.png) no-repeat;
     background-size: 100%;
+}
+
+.about-block:first-child {
+    margin-top: 10px;
+}
+
+.about-block:nth-child(3) {
+    margin-top: 30px;
+}
+
+.about-block:nth-child(4) {
+    margin-top: 5px;
 }
 
 .about-block-content {
@@ -99,14 +143,12 @@ $about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
     color: whitesmoke;
     h1 {
         margin-top: 20%;
-        font-family: $logo-preview-font;
-        font-size: $about-heading-font-size;
+        font-size: $about-block-heading-font-size;
         white-space: nowrap;
     }
     p {
         margin-top: 15%;
-        font-family: $preview-text-font;
-        font-size: $about-text-font-size;
+        font-size: $about-block-text-font-size;
     }
 }
 
@@ -128,5 +170,13 @@ $about-text-font-size: clamp(10px, 0.9vh + 1.1vw, 1vw);
     .preview-section:last-child {
         justify-content: flex-end;
         width: 50%;
+    }
+    .about-content-heading {
+        margin-top: 4%;
+    }
+    .little_about {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        padding: 5%;
     }
 }
