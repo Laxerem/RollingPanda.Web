@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
         <main>
             <div className="preview-image">
                 <HomePreview />
-                <LittleAbout minimal_ratio={0.3} />
+                <LittleAbout minimal_ratio={0.4} />
             </div>
         </main>
         <Footer />

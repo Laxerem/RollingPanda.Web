@@ -1,9 +1,4 @@
-/* ШРИФТЫ */
-$second_font: "Handjet";
-$main-font: "Barcade";
-
-/* ЦВЕТА */
-$main-text-color: whitesmoke;
+@use "/src/assets/style/vars.scss" as *;
 
 /* РАЗМЕРЫ  */
 $catalog-font-size: clamp(18px, 0.6vh + 1vw, 2.5vw);
@@ -211,11 +206,10 @@ footer {
 }
 
 .footer-preview-text {
-    height: 80%;
+    height: 60%;
     h1  {
         font-size: $footer-heading-font-size;
     }
-    align-self: flex-start;
 }
 
 .circular-text {
