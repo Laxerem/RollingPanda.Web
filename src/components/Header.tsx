@@ -1,16 +1,14 @@
 import type React from "react"
 import { useEffect, useState } from "react";
+import StudioLinks from "./StudioLinks";
 
 interface IHeaderCatalog {
     menu: {
         [name:string]: string
-    },
-    links: {
-        [image:string]: string
     }
 }
 
-const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu, links}) => {
+const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
@@ -21,11 +19,7 @@ const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu, links}) => {
                     {Object.keys(menu).map((key, index) => 
                         <span key={index}>{key}</span>
                     )}
-                    <div className="menu-links">
-                        {Object.keys(links).map((key, index) => 
-                            <img key={index} src={`${key}`} />
-                        )}
-                    </div>
+                    <StudioLinks className="menu-links"/>
                 </div>
             ) : (
                 <></>
@@ -64,13 +58,6 @@ const Header: React.FC = () => {
         "Контакты": ""
     }
 
-    const links = {
-        "telegram.svg": "",
-        "youtube.svg": "",
-        "tic-tok.svg": "",
-        "steam.svg": "",
-        "twich.svg": ""
-    };
 
     return (
         <header>
@@ -80,14 +67,10 @@ const Header: React.FC = () => {
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
-                    <HeaderMobileCatalog menu={menu} links={links} />
+                    <HeaderMobileCatalog menu={menu} />
                 ) : (
                     <>
-                    <div className="links">
-                        {Object.keys(links).map((key, index) => 
-                            <img key={index} src={key}/>
-                        )}
-                    </div>
+                    <StudioLinks className="links"/>
                     <div className="site-catalog">
                         <a>Главная</a>
                         <a>О нас</a>

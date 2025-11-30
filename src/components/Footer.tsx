@@ -1,7 +1,7 @@
 import type React from "react";
+import StudioLinks from "./StudioLinks";
 
 const Footer: React.FC = () => {
-
 
     return (
         <footer>
@@ -15,6 +15,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
+                <StudioLinks className="footer-links" flexdefault/>
                 <div></div>
             </div>
         </footer>

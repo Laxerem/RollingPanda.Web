@@ -34,7 +34,7 @@ interface IAboutBlockProps {
 
 const AboutBlock: React.FC<IAboutBlockProps> = ({content, ratio}) => {
     const { width, height } = useMemo(() => {
-            console.log(ratio)
+            // console.log(ratio)
             return {
                 width: 350 * ratio,
                 height: 350 * ratio
@@ -64,7 +64,7 @@ const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     const [ratio, setRatio] = useState<number>(1)
     
     const onButtonHandler = () => {
-        console.log("КЛИК")
+        // console.log("КЛИК")
     }
 
     useEffect(() => {
@@ -93,8 +93,8 @@ const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
                 <h1>Про нас</h1>
             </div>
             <div className="little_about">
-                {blocks_content.map((content) => (
-                    <AboutBlock content={content} ratio={ratio} />
+                {blocks_content.map((content, i) => (
+                    <AboutBlock key={i} content={content} ratio={ratio} />
                 ))}
             </div>
         </div>

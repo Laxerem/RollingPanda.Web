@@ -11,7 +11,7 @@ const BASE_HEIGHT = 152;
 
 const PreviewButton: React.FC<IPreviewButtonProps> = ({ ratio, text, onClick }) => {
     const { width, height } = useMemo(() => {
-        console.log(ratio)
+        // console.log(ratio)
         return {
             width: BASE_WIDTH * ratio,
             height: BASE_HEIGHT * ratio
