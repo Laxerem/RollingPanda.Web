@@ -20,7 +20,7 @@ const blocks_content: Array<IAboutBlock> = [
     },
 ]
 
-const BASE_SCREEN_WIDTH = 2000;
+const BASE_SCREEN_WIDTH = 1800;
 
 interface IAboutBlock {
     heading: string,
@@ -89,7 +89,6 @@ const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     return (
         <div className="about-content">
             <div className="about-content-heading">
-                <h1>Немного</h1>
                 <h1>Про нас</h1>
             </div>
             <div className="little_about">

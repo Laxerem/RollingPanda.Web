@@ -4,13 +4,13 @@
 $button-font: $second_font;
 
 /* РАЗМЕРЫ */
-$logo-preview-font-size: clamp(20px, 2.5vh + 3vw, 5vw);
-$preview-text-size: clamp(15px, 1vh + 1.5vw, 2.2vw);
-$button-font-size: clamp(10px, 1vh + 1.5vw, 1.5vw);
+$logo-preview-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
+$preview-text-size: clamp(15px, 1vh + 2.1vw, 2.8vw);
+$button-font-size: clamp(10px, 1vh + 1.5vw, 1.8vw);
 
-$about-heading-font-size: clamp(14px, 1vh + 1.3vw, 2.2vw);
-$about-block-heading-font-size: clamp(10px, 0.9vh + 1.1vw, 1.3vw);
-$about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
+$about-heading-font-size: clamp(14px, 2vh + 3vw, 4vw);
+$about-block-heading-font-size: clamp(10px, 2vh + 2.7vw, 3.8vw);
+$about-block-text-font-size: clamp(12px, 0.9vh + 1.3vw, 1.7vw);
 
 .preview-image {
     background: url(full_preview1.png) no-repeat;
@@ -59,7 +59,7 @@ $about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
 
 .panda-preview {
     height: auto;
-    max-height: 70vh;
+    max-height: 90vh;
 }
 
 .button-text {
@@ -83,16 +83,12 @@ $about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
         display: flex;
         justify-content: center;
         white-space: nowrap;
+        font-family: "Handjet";
 
         >h1 {
             font-size: $about-heading-font-size;
-        }
-
-        >h1:first-child {
-            margin-bottom: 1%;
-        }
-        >h1:nth-child(2) {
-            margin-top: 10%;
+            transform: scaleY(1.5);
+            margin-top: 5%;
         }
     }
 }
@@ -105,7 +101,7 @@ $about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
     justify-items: center;
     box-sizing: border-box;
     width: 100%;
-    margin-top: 4%;
+    margin-top: 7%;
     gap: 2vw;
     z-index: 100;
     text-align: center;
@@ -118,15 +114,15 @@ $about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
 }
 
 .about-block:first-child {
-    margin-top: 10px;
+    margin-top: 5%;
 }
 
 .about-block:nth-child(3) {
-    margin-top: 30px;
+    margin-top: 10%;
 }
 
 .about-block:nth-child(4) {
-    margin-top: 5px;
+    margin-top: 5%;
 }
 
 .about-block-content {
@@ -142,7 +138,8 @@ $about-block-text-font-size: clamp(12px, 0.9vh + 1.1vw, 1.3vw);
 
     color: whitesmoke;
     h1 {
-        margin-top: 20%;
+        margin-top: 10%;
+        font-family: $second_font;
         font-size: $about-block-heading-font-size;
         white-space: nowrap;
     }

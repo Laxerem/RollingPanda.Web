@@ -3,35 +3,67 @@
 .games-container {
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
+    padding-top: 5vh;
 
     h1 {
-        font-size: clamp(13px, 1vh + 2vw, 3vw);
-        margin-left: 2%;
+        font-size: clamp(60px, 2.5vh + 6vw, 8vw);
+        font-family: $second_font;
+        text-align: end;
+        margin-right: 5%;
     }
     h2 {
         font-size: clamp(12px, 1vh + 1.6vw, 1.7vw);
     }
+
+    background: url(game-background.png) no-repeat center;
+    background-size: cover;
 }
 
 .games-preview {
     display: flex;
     justify-content: center;
-    margin-top: 4%;
-    height: 60vh;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    margin: 4% 0;
+    padding: 0 4%;
+    gap:7%;
 }
 
-.game-card-preview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    width: 40%;
-    border-top: 2px solid #cf273a;
-    border-bottom: 2px solid #cf273a;
-    border-right: 2px solid #cf273a;
-    transition: 0.5s;
+.pc-card {
+    height: 35vw;
+    border: 0.1vw solid whitesmoke;
+}
 
-    padding: 2%;
+.game-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    transition: 0.2s;
+    color: white !important;
+    width: 40px;
+    height: 40px;
+}
+
+.swiper-button-next:hover {
+    color: #bd59ff !important;
+}
+.swiper-button-prev:hover {
+    color: #bd59ff !important;
+}
+
+
+
+@media(max-width: 700px) {
+    .pc-card {
+        height: 300px;
+    }
+}
+
+@media(max-width: 500px) {
+    .pc-card {
+        height: 250px;
+    }
 }

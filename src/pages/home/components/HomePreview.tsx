@@ -2,7 +2,7 @@ import type React from "react";
 import PreviewButton from "./PreviewButton";
 import { useEffect, useState } from "react";
 
-const BASE_SCREEN_WIDTH = 2400;
+const BASE_SCREEN_WIDTH = 2000;
 
 const HomePreview: React.FC = () => {
     const [ratio, setRatio] = useState<number>(1)
