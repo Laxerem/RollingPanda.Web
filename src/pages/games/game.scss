@@ -11,13 +11,14 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
     background-color: #200035a6;
 
     mix-blend-mode: soft-light;
-    pointer-events: none; /* чтобы клики проходили */
+    pointer-events: none;
     z-index: 1;
 }
 
 .game-container {
-    position: relative; // <- добавляем
+    position: relative;
     padding: 2% 4%;
+    min-height: 78.5vh;
 }
 
 .game-heading {
@@ -29,30 +30,64 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
         font-size: $game-name-font-size;
     }
     border-bottom: 1px solid;
+    min-height: 8vh;
 }
 
 .game-install-container {
-    
+    display: flex;
+    justify-content: space-between;
+    gap:5%;
+    width: 20%;
+    min-width: 100px;
+    height: 90%;
+
+    >div:hover {
+        cursor: pointer;
+        background-color: #b301b6;
+    }
 }
 
 .button-install {
-    background-color: #df01e1;
+    box-sizing: border-box;
+    width: 20%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-width: 20px;
+    background: url(/install.svg) center no-repeat #df01e1;
+    background-size: 60%;
 }
 
+
 .text-install {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     font-size: clamp(20px, 1vh + 1.4vw, 1.7vw);
+    background-color: #df01e1;
+    height: auto;
+    width: 80%;
+    padding: 1%;
 }
 
 .game-content-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3vh;
+    >div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3vh;
+        height: auto;
+    }
 }
 
 .game-content-image {
-    height: 65vh;
+    height: 100%;
     width: 65%;
     border: 2px solid whitesmoke;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid whitesmoke;
+    z-index: 5;
 }
 
 .game-text-content {
@@ -87,6 +122,7 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
         }
         border: 2px solid;
         background-color: #400468;
+        z-index: 5;
     }
 
     div:first-child {
@@ -95,5 +131,33 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
 
     div:last-child {
         height: 60%;
+    }
+}
+
+@media (max-width: 800px) {
+    .game-content-container {
+        display: flex;
+        justify-content: center;
+        >div {
+            flex-direction: column;
+            width: 90%;
+        }
+    }
+
+    .game-content-image {
+        width: auto;
+    }
+
+    .game-text-content {
+        align-self: flex-start;
+        width: 100%;
+        >div {
+            height: auto;
+        }
+    }
+
+    .game-text-content div:first-child,
+    .game-text-content div:last-child {
+        height: auto !important;
     }
 }

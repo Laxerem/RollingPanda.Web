@@ -21,21 +21,23 @@ const GamePage = () => {
                     </div>
                 </div>
                 <div className="game-content-container">
-                    <div 
-                    className="game-content-image"
-                    style={{
-                        background: `url(/${game.backgroundImage}) no-repeat`,
-                        backgroundSize: "cover"
-                    }} 
-                    />
-                    <div className="game-text-content">
-                        <div>
-                            <h2>Разработчик:</h2>
-                            <h3>{game.author}</h3>
-                        </div>
-                        <div>
-                            <h2>Описание:</h2>
-                            <h3>{game.description}</h3>
+                    <div>
+                        <div 
+                        className="game-content-image"
+                        style={{
+                            background: `url(/${game.backgroundImage}) no-repeat`,
+                            backgroundSize: "cover"
+                        }}
+                        />
+                        <div className="game-text-content">
+                            <div>
+                                <h2>Разработчик:</h2>
+                                <h3>{game.author}</h3>
+                            </div>
+                            <div>
+                                <h2>Описание:</h2>
+                                <h3>{game.description}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
