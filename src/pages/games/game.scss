@@ -1,0 +1,99 @@
+@use "/src/assets/style/vars.scss" as *;
+
+$game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
+
+.game-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(/paper.png);
+    background-size: cover;
+    background-color: #200035a6;
+
+    mix-blend-mode: soft-light;
+    pointer-events: none; /* чтобы клики проходили */
+    z-index: 1;
+}
+
+.game-container {
+    position: relative; // <- добавляем
+    padding: 2% 4%;
+}
+
+.game-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+        font-family: $second_font;
+        font-size: $game-name-font-size;
+    }
+    border-bottom: 1px solid;
+}
+
+.game-install-container {
+    
+}
+
+.button-install {
+    background-color: #df01e1;
+}
+
+.text-install {
+    font-size: clamp(20px, 1vh + 1.4vw, 1.7vw);
+}
+
+.game-content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+
+.game-content-image {
+    height: 65vh;
+    width: 65%;
+    border: 2px solid whitesmoke;
+}
+
+.game-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    width: 30%;
+
+    >div::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url(/paper.png);
+        background-size: cover;
+
+        mix-blend-mode: soft-light;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    div {
+        position: relative;
+        box-sizing: border-box;
+        padding: 2%;
+        h2 {
+            font-size: clamp(20px, 2.5vh + 3.5vw, 2.5vw);
+        }
+        h3 {
+            font-size: clamp(20px, 2.5vh + 3.5vw, 1.5vw);
+        }
+        border: 2px solid;
+        background-color: #400468;
+    }
+
+    div:first-child {
+        height: 30%;
+    }
+
+    div:last-child {
+        height: 60%;
+    }
+}

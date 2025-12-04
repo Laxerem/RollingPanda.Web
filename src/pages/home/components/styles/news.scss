@@ -95,8 +95,82 @@ $news-date-font-size: clamp(15px, 2vh + 1.5vw, 1.7vw);
 }
 
 .main-news-image {
-    height: 100%;
+    box-sizing: border-box;
+    height: 85%;
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
+}
+
+@media(max-width: 1700px) {
+    .news-background {
+        height: 55vh;
+    }
+    .news-navigation {
+        height: 90%;
+    }
+}
+
+@media(max-width: 1600px) {
+    .news-background {
+        height: 50vh;
+    }
+    .news-navigation {
+        height: 80%;
+    }
+}
+
+@media(max-width: 1400px) {
+    .news-background {
+        height: 45vh;
+    }
+}
+
+@media(max-width: 1300px) {
+    .news-background {
+        height: 40vh;
+    }
+}
+
+@media(max-width: 1200px) {
+    .news-background {
+        height: 35vh;
+    }
+}
+
+@media(max-width: 1100px) {
+    .news-background {
+        height: 30vh;
+    }
+}
+
+@media(max-width: 850px) {
+    .news-heading {
+        width: 100%;
+    }
+    .news-container-content {
+        width: 50%;
+    }
+    .news-pages {
+        flex-direction: column;
+        gap:1vh;
+    }
+    .news {
+        width: 100%;
+    }
+    .news-navigation {
+        height: 70%;
+    }
+}
+
+@media(max-width: 700px) {
+    .news-container-content {
+        width: 60%;
+    }
+}
+
+@media(max-width: 600px) {
+    .news-container-content {
+        width: 70%;
+    }
 }

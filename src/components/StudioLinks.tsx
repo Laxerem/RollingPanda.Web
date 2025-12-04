@@ -1,11 +1,11 @@
 import type React from "react";
 
 const links = {
-    "telegram.svg": "",
-    "youtube.svg": "",
-    "tic-tok.svg": "",
-    "steam.svg": "https://store.steampowered.com/",
-    "twich.svg": ""
+    "/telegram.svg": "",
+    "/youtube.svg": "",
+    "/tic-tok.svg": "",
+    "/steam.svg": "https://store.steampowered.com/",
+    "/twich.svg": ""
 } as const;
 
 interface StudioLinksProps {

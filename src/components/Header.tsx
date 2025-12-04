@@ -1,15 +1,17 @@
 import type React from "react"
 import { useEffect, useState } from "react";
 import StudioLinks from "./StudioLinks";
+import { useNavigate } from "react-router-dom";
+
+type Menu = Record<string, string>;
 
 interface IHeaderCatalog {
-    menu: {
-        [name:string]: string
-    }
+    menu: Menu
 }
 
 const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const navigate = useNavigate()
 
     return (
         <div className="header-catalog-mobile">
@@ -17,7 +19,12 @@ const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
             {isOpen ? (
                 <div className="menu-catalog">
                     {Object.keys(menu).map((key, index) => 
-                        <span key={index}>{key}</span>
+                        <span 
+                        key={index}
+                        onClick={() => navigate(menu[key])}
+                        >
+                            {key}
+                        </span>
                     )}
                     <StudioLinks className="menu-links"/>
                 </div>
@@ -31,6 +38,8 @@ const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
 const Header: React.FC = () => {
     const [width, setWidth] = useState<number>(window.innerWidth);
     const [isMobile, setIsMobile] = useState<boolean>(false);
+    
+    const navigate = useNavigate()
 
     useEffect(() => {
         const handleResize = () => {
@@ -49,21 +58,21 @@ const Header: React.FC = () => {
         setIsMobile(width < 750)
     }, [width])
 
+
     // Data
-    const menu = {
+    const menu: Menu = {
         "Главная": "",
         "О нас": "",
         "Анонсы": "",
-        "Игры": "",
+        "Игры": "/games",
         "Контакты": ""
     }
-
 
     return (
         <header>
             <div className="header-content">
                 <div className="studio-logo">
-                    <img src="studio-logo.svg" className="logo-image"/>
+                    <img src="/studio-logo.svg" className="logo-image"/>
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
@@ -72,11 +81,14 @@ const Header: React.FC = () => {
                     <>
                     <StudioLinks className="links"/>
                     <div className="site-catalog">
-                        <a>Главная</a>
-                        <a>О нас</a>
-                        <a>Анонсы</a>
-                        <a>Игры</a>
-                        <a>Контакты</a>
+                        {Object.keys(menu).map((key, index) => (
+                            <a
+                            key={index}
+                            onClick={() => navigate(menu[key])}
+                            >
+                                {key}
+                            </a>
+                        ))}
                     </div>
                     </>
                 )}
