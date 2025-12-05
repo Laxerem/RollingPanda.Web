@@ -46,7 +46,7 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
     }
 
     aspect-ratio: 3 / 4;
-    height: 600px;
+    height: 500px;
     min-height: 200px;
 }
 
@@ -117,7 +117,7 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
 
 @media(max-width: 1500px) {
     .game-card {
-        height: 450px;
+        height: 400px;
     }
 } 
 
@@ -127,9 +127,14 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
     }
 } 
 
-@media(max-width: 900px) {
+@media(max-width: 1000px) {
     .game-card {
         height: 300px;
     }
 }
 
+@media(max-width: 900px) {
+    .game-card {
+        height: 250px;
+    }
+}

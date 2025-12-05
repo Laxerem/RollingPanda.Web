@@ -91,6 +91,7 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
                             <div className="news-content-container">
                                 <div className="news-date">
                                     <p>{currentDate}</p>
+                                    <span className="line"></span>
                                 </div>
                                 <div className="news-content">
                                     <h2>{props[currentNews].heading}</h2>
@@ -109,6 +110,7 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
                             <div className="news-content-container">
                                 <div className="news-date">
                                     <p>{currentDate}</p>
+                                    <span className="line"></span>
                                 </div>
                                 <div className="news-content">
                                     <p>{props[currentNews].content}</p>

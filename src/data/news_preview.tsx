@@ -14,5 +14,26 @@ export const newsPreview: Array<INewsContent> = [
         content: "Мы провели подготовительный митап, чтобы зарядить участников идеями и полезными инструментами.",
         mainImage: "game3.png",
         secondImage: "game4.png"
+    },
+    {
+        date: new Date(2025, 11, 22),
+        heading: "GameJam: прогресс первого дня",
+        content: "Старт GameJam-а: У команд уже созданы первые персонажи, выбран стиль и сеттинг, собраны ключевые механики.",
+        mainImage: "game3.png",
+        secondImage: "game4.png"
+    },
+    {
+        date: new Date(2025, 11, 22),
+        heading: "Вечерний взгляд на GameJam",
+        content: "Команды активно продвигаются вперёд: появляются все более детализированные персонажи, анимации, игровые тайлы, элементы интерфейса и базовая логика на движке.",
+        mainImage: "game3.png",
+        secondImage: "game4.png"
+    },
+    {
+        date: new Date(2025, 11, 22),
+        heading: "Наблюдай за GameJam онлайн!",
+        content: "Наши геймдизайнеры ведут собственные мини-дневники, где показывают, как рождаются персонажи, уровни, механики и первые прототипы.",
+        mainImage: "game3.png",
+        secondImage: "game4.png"
     }
 ]

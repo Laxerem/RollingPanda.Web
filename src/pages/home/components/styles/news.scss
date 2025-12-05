@@ -2,7 +2,7 @@
 
 $news-heading-font-size: clamp(15px, 2vh + 2vw, 2vw);
 $news-heading2-font-size: clamp(15px, 2vh + 2vw, 2.5vw);
-$news-text-font-size: clamp(15px, 2vh + 1.3vw, 2.2vw);
+$news-text-font-size: clamp(15px, 2vh + 1.3vw, 1.5vw);
 $news-date-font-size: clamp(15px, 2vh + 1.5vw, 1.7vw);
 
 .news-container {
@@ -61,7 +61,10 @@ $news-date-font-size: clamp(15px, 2vh + 1.5vw, 1.7vw);
     }
 
     .news-date {
+        display: flex;
+        align-items: center;
         font-size: $news-date-font-size;
+        white-space: nowrap;
     }
 
     .news-content {

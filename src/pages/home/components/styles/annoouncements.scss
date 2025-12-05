@@ -1,0 +1,59 @@
+@use "/src/assets/style/vars.scss" as *;
+
+$annonce-heading-font-size: clamp(60px, 2.5vh + 6vw, 8vw);
+$annonce-game-name-font-size: clamp(20px, 2vh + 2.5vw, 2vw);
+$annonce-game-date-font-size: clamp(20px, 1vh + 1vw, 1.5vw);
+
+.annoouncements-container {
+    margin-top: 5vh;
+}
+
+.annoouncements-heading {
+    h1 {
+        font-family: $second_font;
+        font-size: $annonce-heading-font-size;
+    }
+    background-image: url(annonce-heading.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    padding: 4%;
+}
+
+
+
+.annoouncements-content {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, auto);
+    justify-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 7%;
+    gap: 2vw;
+    text-align: center;
+}
+
+.annoouncement-image {
+    aspect-ratio: 3 / 4;
+    height: 27vw;
+    min-height: 200px;
+    border: 2px solid whitesmoke;
+}
+
+.annoouncement-card {
+    h3 {
+        font-size: $annonce-game-name-font-size;
+        font-weight: 300;
+    }
+    p {
+        font-size: $annonce-game-date-font-size;
+        font-weight: 300;
+    }
+}
+
+.annoouncement-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
