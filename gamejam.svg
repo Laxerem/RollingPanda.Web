@@ -1,0 +1,16 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%"/>
+  
+  <!-- Minimal GameJam mark -->
+  <g fill="white" transform="translate(80,80)">
+    <!-- Outer circle (jam / process / unity) -->
+    <circle cx="432" cy="432" r="432"/>
+
+    <!-- Cut-out cross (gamepad element) -->
+    <rect x="372" y="240" width="120" height="384" rx="40" fill="black"/>
+    <rect x="240" y="372" width="384" height="120" rx="40" fill="black"/>
+
+    <!-- Inner circle (core idea / creativity) -->
+    <circle cx="432" cy="432" r="140" fill="black"/>
+  </g>
+</svg>
