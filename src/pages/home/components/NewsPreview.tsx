@@ -7,7 +7,8 @@ interface IArrowClick {
 }
 
 export interface INewsContent {
-    date: Date,
+    mainDate: Date,
+    otherDate: Date,
     heading: string,
     content: string,
     mainImage: string,
@@ -70,8 +71,11 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
         setRightArrow(currentNews < props.length - 1)
     }, [currentNews])
 
-    let currentDate = props[currentNews].date.toLocaleDateString("ru-RU", dateOptions).replace(",", "")
+    let currentDate = props[currentNews].mainDate.toLocaleDateString("ru-RU", dateOptions).replace(",", "")
     currentDate = currentDate.charAt(0).toUpperCase() + currentDate.slice(1);
+
+    let otherCurrentDate = props[currentNews].otherDate.toLocaleDateString("ru-RU", dateOptions).replace(",", "")
+    otherCurrentDate = otherCurrentDate.charAt(0).toUpperCase() + otherCurrentDate.slice(1);
 
     return (
         <div className="news-container">
@@ -110,7 +114,7 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
                             <div className="news-content-container">
                                 <div className="news-content-text">
                                     <div className="news-date">
-                                        <p>{currentDate}</p>
+                                        <p>{otherCurrentDate}</p>
                                         <span className="line"></span>
                                     </div>
                                     <p>{props[currentNews].content}</p>

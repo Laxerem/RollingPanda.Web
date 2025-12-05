@@ -58,6 +58,16 @@ $game-name-font-size: clamp(30px, 2.5vh + 3.5vw, 5.5vw);
     background-size: 60%;
 }
 
+.button-link {
+    box-sizing: border-box;
+    width: 20%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-width: 25px;
+    background: url(/link.svg) center no-repeat #df01e1;
+    background-size: 80%;
+}
+
 
 .text-install {
     display: flex;

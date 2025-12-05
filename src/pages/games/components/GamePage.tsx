@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { games } from "../../../data/games";
 import type { IGameCard } from "../../../components/GameCard";
 import '../game.scss'
@@ -17,6 +17,16 @@ const GamePage = () => {
                             <div className="button-install" />
                             <div className="text-install">
                                 <span>Скачать</span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+                    {game.link ? (
+                        <div className="game-install-container">
+                            <div className="button-link"  onClick={() => window.open(game.link, "_blank")}/>
+                            <div className="text-install" onClick={() => window.open(game.link, "_blank")}>
+                                <span>Ссылка</span>
                             </div>
                         </div>
                     ) : (

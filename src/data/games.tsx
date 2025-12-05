@@ -7,7 +7,7 @@ export type IGameMarksImages = {
 export type IGameMark = "GameJam" | "Скачиваемая"
 
 export const gamesMarksDict: IGameMarksImages = {
-    "GameJam": "gamejam.svg",
+    "GameJam": "game.png",
     "Скачиваемая": "install.svg"
 }
 
@@ -23,7 +23,7 @@ export const games: Array<IGameCard> = [
     {
         name: "SpellShot",
         description: "Русская рулетка, но в более динамичной и необычной обёртке. Пули имеют свои особенности (на данный момент только урон и лечение). Игрок загружает в барабан желаемые пули, после чего поочереди с соперником делает выстрелы. Порядок пуль случаен, игрок знает лишь количество. Ваша задача - выжить и дойти до босса",
-        backgroundImage: "game4.png",
+        backgroundImage: "game6.png",
         mainImage: "game3.png",
         author: "Домуховский Артём, Карфидов Вячеслав, Кирилл Борисов, Даниил Валишин"
     },
@@ -31,7 +31,8 @@ export const games: Array<IGameCard> = [
         name: "SFERA",
         description: "SFERA — экшен платформер. Микс 3D и ретро 2D. Ты наёмный убийца. Тебе поручено уничтожить банду роботов. Выполни заказ и заработай много денег.",
         backgroundImage: "game5.png",
-        mainImage: "game3.png",
-        author: "SergioPoverony"
+        mainImage: "sfera.png",
+        author: "SergioPoverony",
+        link: "https://vkplay.ru/play/game/sf3ra"
     }
 ]

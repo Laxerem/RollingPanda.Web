@@ -23,9 +23,10 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
 }
 
 .games-catalog {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
     gap: 3vw;
     margin-top: 4vh;
 }
@@ -47,13 +48,16 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
     }
 
     aspect-ratio: 3 / 4;
-    height: 500px;
+    height: 35vw;
     min-height: 200px;
 }
 
 .game-card:hover {
     border: 2px solid #da81f8;
-    padding: 1.5%;
+    -webkit-box-shadow: -1px 0px 27px 23px rgba(218, 129, 248, 0.2);
+    -moz-box-shadow: -1px 0px 27px 23px rgba(218, 129, 248, 0.2);
+    box-shadow: -1px 0px 27px 23px rgba(218, 129, 248, 0.2);
+    padding: 20px;
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -118,17 +122,20 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
 
 @media(max-width: 1500px) {
     .game-card {
+        height: 500px;
+    }
+} 
+
+@media(max-width: 1350px) {
+    .game-card {
         height: 400px;
     }
-} 
-
-@media(max-width: 1200px) {
-    .game-card {
-        height: 350px;
+    .game-card:hover {
+        padding: 15px;
     }
 } 
 
-@media(max-width: 1000px) {
+@media(max-width: 1100px) {
     .game-card {
         height: 300px;
     }

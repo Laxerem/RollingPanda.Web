@@ -10,7 +10,8 @@ export interface IGameCard {
     marks?: Array<IGameMark>,
     author?: string,
     description?: string,
-    install?: boolean
+    install?: boolean,
+    link?: string
 }
 
 interface IGameCardProps {
@@ -63,8 +64,8 @@ const GameCardButton: React.FC<IGameCardButtonProps> = ({link}) => {
     const navigation = useNavigate()
 
     return (
-        <div className="game-card-button">
-            <span onClick={() => navigation(link)}>Подробнее</span>
+        <div className="game-card-button" onClick={() => navigation(`/games/${link}`)}>
+            <span>Подробнее</span>
         </div>
     )
 }

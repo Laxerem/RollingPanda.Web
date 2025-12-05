@@ -2,18 +2,25 @@ import type { IGameCard } from "../components/GameCard";
 
 export const gamesPreview: Array<IGameCard> = [
     {
-        name: "Panda",
-        description: "Лучшая игра в мире, максимально советую",
-        backgroundImage: "paper.png"
+        name: "VdVM07",
+        description: "Главный герой - наемник, получивший заказ устранить учёного, чьи эксперименты вышли из-под контроля. Он пробирается через пещеру в лабораторию, чтобы добраться до цели.",
+        backgroundImage: "game2.png",
+        marks: ["GameJam"],
+        mainImage: "game1.png",
+        author: "Александр Прудников, Виктория Рубан, Никита Спасский"
     },
     {
-        name: "Топ игра",
-        description: "Не ребят ну это топ типа",
-        backgroundImage: "studio-logo.png"
+        name: "SpellShot",
+        description: "Русская рулетка, но в более динамичной и необычной обёртке. Пули имеют свои особенности (на данный момент только урон и лечение). Игрок загружает в барабан желаемые пули, после чего поочереди с соперником делает выстрелы. Порядок пуль случаен, игрок знает лишь количество. Ваша задача - выжить и дойти до босса",
+        backgroundImage: "game6.png",
+        mainImage: "game3.png",
+        author: "Домуховский Артём, Карфидов Вячеслав, Кирилл Борисов, Даниил Валишин"
     },
     {
-        name: "Game",
-        description: "Нет слов, одни эмоции",
-        backgroundImage: ""
+        name: "SFERA",
+        description: "SFERA — экшен платформер. Микс 3D и ретро 2D. Ты наёмный убийца. Тебе поручено уничтожить банду роботов. Выполни заказ и заработай много денег.",
+        backgroundImage: "game5.png",
+        mainImage: "sfera.png",
+        author: "SergioPoverony"
     }
 ]

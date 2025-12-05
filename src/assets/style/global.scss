@@ -6,7 +6,7 @@ $studio-logo-font-size: clamp(9px, 0.6vh + 0.4vw, 1.8vw);
 $links-size: clamp(1.1vw, 1vh + 1vw, 2.5vw);
 $footer-links-size: clamp(15px, 1vh + 1.2vw, 3vw);
 
-$footer-heading-font-size: clamp(10px, 0.6vh + 1vw, 2.5vw);
+$footer-heading-font-size: clamp(10px, 0.6vh + 0.8vw, 0.9vw);
 $footer-text-font-size: clamp(12px, 0.6vh + 1vw, 2.5vw);
 
 * {
@@ -105,15 +105,25 @@ header::before {
 }
 
 .studio-logo {
-        display: flex;
-        align-items: center;
-        gap: 2vw;
-        span {
-            color: $main-text-color;
-            font-family: $main-font;
-            font-size: $studio-logo-font-size;
-        }
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    span {
+        color: $main-text-color;
+        font-family: $main-font;
+        font-size: $studio-logo-font-size;
     }
+    img {
+        transition: 1s;
+    }
+}
+
+.studio-logo {
+    img:hover {
+        transform: scale(1.05) rotate(-10deg);
+        cursor: pointer;
+    }
+}
 
 .logo-image {
     height: 4.7vh;
@@ -234,10 +244,13 @@ footer {
 }
 
 .footer-preview-text {
+    display: flex;
+    align-items: center;
     height: 60%;
     h1  {
         font-size: $footer-heading-font-size;
         line-height: 140%;
+        white-space: nowrap;
     }
     p {
         font-size: $footer-text-font-size;

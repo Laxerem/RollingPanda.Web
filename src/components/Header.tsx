@@ -97,7 +97,7 @@ const Header: React.FC = () => {
         <header>
             <div className="header-content">
                 <div className="studio-logo">
-                    <img src="/studio-logo.svg" className="logo-image"/>
+                    <img src="/studio-logo.svg" className="logo-image" onClick={() => navigate("/")}/>
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
