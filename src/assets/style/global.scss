@@ -19,6 +19,10 @@ html {
     background-color: #1c002f;
 }
 
+main {
+    min-height: 78.5vh;
+}
+
 a {
     color: $main-text-color;
     font-family: $second_font;
@@ -189,7 +193,6 @@ header::before {
 footer {
     height: 15vh;
     background-color: #400468;
-    margin-top: 5%;
 }
 
 .footer-content::before {

@@ -8,7 +8,8 @@ $news-date-font-size: clamp(15px, 2vh + 1.5vw, 1.7vw);
 .news-container {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .news-container-content {

@@ -17,7 +17,7 @@ const HomePage: React.FC = () => (
         </div>
         <GamesPreview games={gamesPreview} />
         <NewsPreview props={newsPreview} />
-        <AnnoouncementsContainer props={annoouncements} />
+        {/* <AnnoouncementsContainer props={annoouncements} /> */}
     </main>
 )
 

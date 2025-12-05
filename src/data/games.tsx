@@ -7,39 +7,31 @@ export type IGameMarksImages = {
 export type IGameMark = "GameJam" | "Скачиваемая"
 
 export const gamesMarksDict: IGameMarksImages = {
-    "GameJam": "",
+    "GameJam": "gamejam.svg",
     "Скачиваемая": "install.svg"
 }
 
 export const games: Array<IGameCard> = [
     {
-        name: "Mario",
-        description: "Обажаю эту игру",
-        backgroundImage: "game1.png",
-        marks: ["Скачиваемая", "GameJam"],
-        mainImage: "game1.png",
-        author: "Лев Лихачёв"
-    },
-    {
-        name: "BrawlStars",
-        description: "Обажаю эту игру",
-        backgroundImage: "game1.png",
-        mainImage: "game1.png",
+        name: "VdVM07",
+        description: "Главный герой - наемник, получивший заказ устранить учёного, чьи эксперименты вышли из-под контроля. Он пробирается через пещеру в лабораторию, чтобы добраться до цели.",
+        backgroundImage: "game2.png",
         marks: ["GameJam"],
-        author: "",
-    },
-    {
-        name: "Mario",
-        description: "Обажаю эту игру",
-        backgroundImage: "game1.png",
         mainImage: "game1.png",
-        marks: ["Downloaded"],
-        author: ""
+        author: "Александр Прудников, Виктория Рубан, Никита Спасский"
     },
     {
-        name: "Mario",
-        description: "Обажаю эту игру",
-        backgroundImage: "game1.png",
-        mainImage: "game1.png"
+        name: "SpellShot",
+        description: "Русская рулетка, но в более динамичной и необычной обёртке. Пули имеют свои особенности (на данный момент только урон и лечение). Игрок загружает в барабан желаемые пули, после чего поочереди с соперником делает выстрелы. Порядок пуль случаен, игрок знает лишь количество. Ваша задача - выжить и дойти до босса",
+        backgroundImage: "game4.png",
+        mainImage: "game3.png",
+        author: "Домуховский Артём, Карфидов Вячеслав, Кирилл Борисов, Даниил Валишин"
+    },
+    {
+        name: "SFERA",
+        description: "SFERA — экшен платформер. Микс 3D и ретро 2D. Ты наёмный убийца. Тебе поручено уничтожить банду роботов. Выполни заказ и заработай много денег.",
+        backgroundImage: "game5.png",
+        mainImage: "game3.png",
+        author: "SergioPoverony"
     }
 ]

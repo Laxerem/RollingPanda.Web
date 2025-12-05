@@ -114,17 +114,18 @@ $game-name-font-size: clamp(30px, 2.5vh + 3.5vw, 5.5vw);
     div {
         position: relative;
         box-sizing: border-box;
-        padding: 2%;
+        padding: 15px;
         h2 {
-            font-size: clamp(20px, 2.5vh + 3.5vw, 2.5vw);
+            font-size: clamp(25px, 2.5vh + 3.5vw, 2.6vw);
             font-weight: 100;
+            margin-bottom: 10px;
         }
         h3 {
-            font-size: clamp(20px, 1vh + 1.2vw, 1.4vw);
+            font-size: clamp(15px, 1vh + 1.2vw, 1.3vw);
             font-weight: 100;
         }
         p {
-            font-size: clamp(20px, 2.5vh + 3.5vw, 1.5vw);
+            font-size: clamp(15px, 2.5vh + 3.5vw, 1.5vw);
             font-weight: 100;
         }
         border: 2px solid;

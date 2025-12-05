@@ -9,7 +9,8 @@ export interface IGameCard {
     backgroundImage: string,
     marks?: Array<IGameMark>,
     author?: string,
-    description?: string
+    description?: string,
+    install?: boolean
 }
 
 interface IGameCardProps {
@@ -83,7 +84,8 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
                 <div
                 className="game-card-image"
                 style={{
-                    background: `url(${game.backgroundImage}) no-repeat center`,
+                    backgroundImage: `url(${game.backgroundImage})`,
+                    backgroundRepeat: "no-repeat",
                     backgroundSize: "100%",
                     width: "100%",
                     height: "45%"
@@ -106,7 +108,9 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
                 <div 
                 className="game-card-image" 
                 style={{
-                    background: `url(${game.mainImage}) no-repeat`,
+                    backgroundImage: `url(${game.mainImage})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "100%",
                     height: "100%"        
                 }}
                 />

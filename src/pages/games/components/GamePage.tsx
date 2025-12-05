@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { games } from "../../../data/games";
 import type { IGameCard } from "../../../components/GameCard";
@@ -13,12 +12,16 @@ const GamePage = () => {
             <div className="game-container">
                 <div className="game-heading">
                     <h1>{game.name}</h1>
-                    <div className="game-install-container">
-                        <div className="button-install" />
-                        <div className="text-install">
-                            <span>Скачать</span>
+                    {game.install ? (
+                        <div className="game-install-container">
+                            <div className="button-install" />
+                            <div className="text-install">
+                                <span>Скачать</span>
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 <div className="game-content-container">
                     <div>
@@ -31,7 +34,7 @@ const GamePage = () => {
                         />
                         <div className="game-text-content">
                             <div>
-                                <h2>Разработчик:</h2>
+                                <h2>Разработчики:</h2>
                                 <h3>{game.author}</h3>
                             </div>
                             <div>

@@ -13,25 +13,25 @@ interface IHeaderCatalog {
     menu: Menu
 }
 
-const scrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-};
 
 const handleMenuClick = (action: MenuAction, navigate: Function) => {
     if (typeof action === "string") {
         navigate(action);
     } else {
-        // если мы уже на этой странице → просто скроллим
         if (location.pathname === "/") {
-            scrollToId(action.scrollTo);
+            // уже на главной — скроллим сразу
+            const el = document.getElementById(action.scrollTo);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
         } else {
-            // иначе: передаём параметр, чтобы Home потом скроллил сам
-            navigate(`/?scrollTo=${action.scrollTo}`);
+            // не на главной — переключаемся, потом скроллим через setTimeout
+            navigate("/");
+            setTimeout(() => {
+                const el = document.getElementById(action.scrollTo);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+            }, 100); // 100мс должно хватить для рендера
         }
     }
 };
-
 
 const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({links, menu}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)

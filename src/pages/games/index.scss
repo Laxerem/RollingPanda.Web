@@ -2,8 +2,8 @@
 
 $page-name-font-size: clamp(70px, 3vh + 6vw, 7.5vw);
 
-$card-heading-font-size: clamp(17px, 2vh + 2.5vw, 3.2vw);
-$card-author-font-size: clamp(10px, 2vh + 2.5vw, 1.3vw);
+$card-heading-font-size: clamp(17px, 2vh + 2.5vw, 2.7vw);
+$card-author-font-size: clamp(10px, 1vh + 1vw, 1vw);
 $card-text-font-size: clamp(12px, 2vh + 2.5vw, 1.4vw);
 $card-button-font-size: clamp(15px, 2vh + 2.5vw, 1.5vw);
 $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
@@ -42,6 +42,7 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
     }
 
     h2 {
+        font-weight: 1;
         font-size: $card-author-font-size;
     }
 
