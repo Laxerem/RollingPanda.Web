@@ -2,8 +2,8 @@ import type React from "react";
 import "./styles/games.scss"
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide} from "swiper/react";
-import 'swiper/css'; // основные стили
-import 'swiper/css/navigation'; // если нужен navigation
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
 import type { IGameCard } from "../../../components/GameCard";
 import GameCard from "../../../components/GameCard";

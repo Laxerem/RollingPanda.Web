@@ -2,10 +2,6 @@ import type React from "react"
 import './styles/news.scss'
 import { useEffect, useState } from "react"
 
-interface IArrowClick {
-    dirrection: "left" | "right"
-}
-
 export interface INewsContent {
     mainDate: Date,
     otherDate: Date,

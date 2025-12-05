@@ -6,8 +6,6 @@ import GamesPreview from "./components/GamesPreview"
 import NewsPreview from "./components/NewsPreview"
 import { gamesPreview } from "../../data/games_preview"
 import { newsPreview } from "../../data/news_preview"
-import AnnoouncementsContainer from "./components/Announcements"
-import { annoouncements } from "../../data/annoouncements"
 
 const HomePage: React.FC = () => (
     <main>

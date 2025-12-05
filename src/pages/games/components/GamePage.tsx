@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { games } from "../../../data/games";
 import type { IGameCard } from "../../../components/GameCard";
 import '../game.scss'

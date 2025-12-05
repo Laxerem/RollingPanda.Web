@@ -1,7 +1,7 @@
 import type React from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { gamesMarksDict, type IGameMark, type IGameMarksImages } from "../data/games";
+import { gamesMarksDict, type IGameMark} from "../data/games";
 
 export interface IGameCard {
     name: string,

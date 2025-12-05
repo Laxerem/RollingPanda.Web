@@ -70,7 +70,7 @@ header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(/paper.png);
+    background: url(paper.png);
     background-size: cover;
 
     mix-blend-mode: soft-light;
@@ -155,7 +155,7 @@ header::before {
 .catalog-icon {
     position: absolute;
     right: 0.1vw;
-    background: url(/menu.svg) center no-repeat;
+    background: url(menu.svg) center no-repeat;
     width: 50px;
     height: 100%;
     cursor: pointer;
@@ -209,7 +209,7 @@ footer {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(/paper.png);
+    background: url(paper.png);
     background-size: cover;
 
     mix-blend-mode: soft-light;

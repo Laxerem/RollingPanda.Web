@@ -63,10 +63,6 @@ interface LittleAboutProps {
 const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     const [ratio, setRatio] = useState<number>(1)
     
-    const onButtonHandler = () => {
-        // console.log("КЛИК")
-    }
-
     useEffect(() => {
         const calculateRatio = () => {
             const currentWidth = window.innerWidth;
