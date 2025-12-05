@@ -16,7 +16,7 @@ const GamesCatalog: React.FC<IGamesCatalogProps> = ({games}) => {
                 />
             ))}
         </div>
-    )
+)
 }
 
 export default GamesCatalog

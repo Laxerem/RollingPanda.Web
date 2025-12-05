@@ -36,7 +36,7 @@ const GamePage = () => {
                             </div>
                             <div>
                                 <h2>Описание:</h2>
-                                <h3>{game.description}</h3>
+                                <p>{game.description}</p>
                             </div>
                         </div>
                     </div>

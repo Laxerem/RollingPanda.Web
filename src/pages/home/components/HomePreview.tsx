@@ -1,14 +1,16 @@
 import type React from "react";
 import PreviewButton from "./PreviewButton";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BASE_SCREEN_WIDTH = 2000;
 
 const HomePreview: React.FC = () => {
     const [ratio, setRatio] = useState<number>(1)
+    const navigate = useNavigate()
 
     const onButtonHandler = () => {
-        console.log("КЛИК")
+        navigate("/games")
     }
 
     useEffect(() => {

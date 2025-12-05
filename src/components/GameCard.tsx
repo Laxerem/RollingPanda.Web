@@ -1,12 +1,15 @@
 import type React from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { gamesMarksDict, type IGameMark, type IGameMarksImages } from "../data/games";
 
 export interface IGameCard {
     name: string,
-    description: string,
+    mainImage: string,
     backgroundImage: string,
-    author?: string
+    marks?: Array<IGameMark>,
+    author?: string,
+    description?: string
 }
 
 interface IGameCardProps {
@@ -15,6 +18,44 @@ interface IGameCardProps {
 
 interface IGameCardButtonProps {
     link: string
+}
+
+interface IGameMarkProps {
+    text: string,
+    image: string,
+    widthCompression?: number
+}
+
+const GameMark: React.FC<IGameMarkProps> = ({text, image, widthCompression = 0}) => {
+    const [width, setWidth] = useState<number>(window.innerWidth)
+
+    useEffect(() => {
+        const handleWidth = () => {
+            setWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleWidth)
+
+        return (
+            window.removeEventListener('resize', handleWidth)
+        )
+    }, [])
+
+    return (
+        <div className="mark">
+            {width > widthCompression ? (
+                <div 
+                className="mark-image" 
+                style={{
+                    background: `url(${image}) no-repeat center`,
+                    backgroundSize: "100%"
+                }}
+                />
+            ) : (
+                <></>
+            )}
+            <span>{text}</span>
+        </div>
+    )
 }
 
 const GameCardButton: React.FC<IGameCardButtonProps> = ({link}) => {
@@ -28,49 +69,18 @@ const GameCardButton: React.FC<IGameCardButtonProps> = ({link}) => {
 }
 
 
-const BASE_SCREEN_WIDTH = 2200;
-const BASE_CARD_WIDTH = 570;
-const BASE_CARD_HEIGHT = 759;
-const MIN_RATIO = 0.4; // можешь настроить
-
 const GameCard: React.FC<IGameCardProps> = ({ game }) => {
-    const [ratio, setRatio] = useState(1);
     const [isHovered, setIsHovered] = useState<boolean>(false)
-
-    useEffect(() => {
-        const calculateRatio = () => {
-            let r = window.innerWidth / BASE_SCREEN_WIDTH;
-            if (r < MIN_RATIO) r = MIN_RATIO;
-            setRatio(r);
-        };
-
-        calculateRatio();
-        window.addEventListener("resize", calculateRatio);
-        return () => window.removeEventListener("resize", calculateRatio);
-    }, []);
-
-    useEffect(() => {
-
-    }, [isHovered])
-
-    const { width, height } = useMemo(() => {
-        return {
-            width: BASE_CARD_WIDTH * ratio,
-            height: BASE_CARD_HEIGHT * ratio,
-        };
-    }, [ratio])
 
     return (
         <div
             className="game-card"
-            style={{
-                width,
-                height,
-            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div
+            {isHovered ? (
+                <>
+                <div
                 className="game-card-image"
                 style={{
                     background: `url(${game.backgroundImage}) no-repeat center`,
@@ -78,17 +88,29 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
                     width: "100%",
                     height: "45%"
                 }}
-            />
-            <div className="game-card-content">
-                <h1>{game.name}</h1>
-                <h2>{game.author}</h2>
-                <p>{game.description}</p>
-                {isHovered ? (
+                />
+                <div className="game-card-content">
+                    <h1>{game.name}</h1>
+                    <h2>{game.author}</h2>
+                    {game.marks ? (
+                        <div className="marks-container">
+                            {game.marks.map((mark, i) => (
+                                <GameMark key={i} text={mark} image={gamesMarksDict[mark]} widthCompression={700} />
+                            ))}
+                        </div>
+                    ) : (<></>)}
                     <GameCardButton link={game.name}/>
-                ) : (
-                    <></>
-                )}
-            </div>
+                </div>
+                </>
+            ) : (
+                <div 
+                className="game-card-image" 
+                style={{
+                    background: `url(${game.mainImage}) no-repeat`,
+                    height: "100%"        
+                }}
+                />
+            )}
         </div>
     );
 };

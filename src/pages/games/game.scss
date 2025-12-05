@@ -1,6 +1,6 @@
 @use "/src/assets/style/vars.scss" as *;
 
-$game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
+$game-name-font-size: clamp(30px, 2.5vh + 3.5vw, 5.5vw);
 
 .game-container::before {
     content: "";
@@ -42,6 +42,7 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
     height: 90%;
 
     >div:hover {
+        transition: 0.2s;
         cursor: pointer;
         background-color: #b301b6;
     }
@@ -52,7 +53,7 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
     width: 20%;
     height: auto;
     aspect-ratio: 1 / 1;
-    min-width: 20px;
+    min-width: 25px;
     background: url(/install.svg) center no-repeat #df01e1;
     background-size: 60%;
 }
@@ -116,13 +117,20 @@ $game-name-font-size: clamp(20px, 2.5vh + 3.5vw, 5.5vw);
         padding: 2%;
         h2 {
             font-size: clamp(20px, 2.5vh + 3.5vw, 2.5vw);
+            font-weight: 100;
         }
         h3 {
+            font-size: clamp(20px, 1vh + 1.2vw, 1.4vw);
+            font-weight: 100;
+        }
+        p {
             font-size: clamp(20px, 2.5vh + 3.5vw, 1.5vw);
+            font-weight: 100;
         }
         border: 2px solid;
         background-color: #400468;
         z-index: 5;
+        min-height: 70px;
     }
 
     div:first-child {

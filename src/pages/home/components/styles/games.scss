@@ -32,6 +32,8 @@
 .game-slide {
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 4%;
 }
 
 .swiper-button-next,
@@ -47,4 +49,10 @@
 }
 .swiper-button-prev:hover {
     color: #bd59ff !important;
+}
+
+@media(max-width: 500px) {
+    .games-catalog {
+        gap: 3vh !important;
+    }
 }

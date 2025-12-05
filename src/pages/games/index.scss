@@ -1,11 +1,13 @@
 @use "/src/assets/style/vars.scss" as *;
 
-$page-name-font-size: clamp(50px, 3vh + 6vw, 7.5vw);
+$page-name-font-size: clamp(70px, 3vh + 6vw, 7.5vw);
 
-$card-heading-font-size: clamp(25px, 2vh + 2.5vw, 3.2vw);
-$card-author-font-size: clamp(12px, 2vh + 2.5vw, 1.3vw);
+$card-heading-font-size: clamp(17px, 2vh + 2.5vw, 3.2vw);
+$card-author-font-size: clamp(10px, 2vh + 2.5vw, 1.3vw);
 $card-text-font-size: clamp(12px, 2vh + 2.5vw, 1.4vw);
 $card-button-font-size: clamp(15px, 2vh + 2.5vw, 1.5vw);
+$card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
+
 
 .games-catalog-container {
     padding: 7vh 4%;
@@ -30,7 +32,6 @@ $card-button-font-size: clamp(15px, 2vh + 2.5vw, 1.5vw);
 
 .game-card {
     box-sizing: border-box;
-    padding: 1.5%;
     border: 2px solid #fff4f4;
     transition: 0.3s;
     background-color: #1c002f;
@@ -43,10 +44,15 @@ $card-button-font-size: clamp(15px, 2vh + 2.5vw, 1.5vw);
     h2 {
         font-size: $card-author-font-size;
     }
+
+    aspect-ratio: 3 / 4;
+    height: 600px;
+    min-height: 200px;
 }
 
 .game-card:hover {
     border: 2px solid #da81f8;
+    padding: 1.5%;
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -80,3 +86,50 @@ $card-button-font-size: clamp(15px, 2vh + 2.5vw, 1.5vw);
 .game-card-button:hover {
     background-color: #bd03c0;
 }
+
+.marks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin-top: 4%;
+}
+
+.mark {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    height: auto;
+    border: 1px solid #da81f8;
+    padding: 2%;
+    gap: 1vw;
+    
+    span {
+        font-size: $card-mark-text-font-size;
+    }
+}
+
+.mark-image {
+    aspect-ratio: 1 / 1;
+    height: 1em;
+    width: auto;
+}
+
+@media(max-width: 1500px) {
+    .game-card {
+        height: 450px;
+    }
+} 
+
+@media(max-width: 1200px) {
+    .game-card {
+        height: 350px;
+    }
+} 
+
+@media(max-width: 900px) {
+    .game-card {
+        height: 300px;
+    }
+}
+
