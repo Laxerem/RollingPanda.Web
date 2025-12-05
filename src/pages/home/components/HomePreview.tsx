@@ -33,7 +33,7 @@ const HomePreview: React.FC = () => {
     }, []);
 
     return (
-        <div className="home_preview">
+        <div id="home" className="home_preview">
             <div className="preview-section">
                 <div className="studio-name">
                     <h1>Rolling<br></br>Panda</h1>

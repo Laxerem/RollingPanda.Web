@@ -1,10 +1,11 @@
 import type React from "react";
 import StudioLinks from "./StudioLinks";
+import { footerLinksData } from "../data/links";
 
 const Footer: React.FC = () => {
 
     return (
-        <footer>
+        <footer id="footer">
             <div className="footer-content">
                 <div>
                     <div className="footer-preview">
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <StudioLinks className="footer-links" flexdefault/>
+                <StudioLinks className="footer-links" flexdefault links={footerLinksData}/>
                 <div></div>
             </div>
         </footer>

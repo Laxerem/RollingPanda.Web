@@ -87,7 +87,7 @@ const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     }, []);
 
     return (
-        <div className="about-content">
+        <div id="about_us" className="about-content">
             <div className="about-content-heading">
                 <h1>Про нас</h1>
             </div>

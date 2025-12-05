@@ -1,20 +1,16 @@
 import type React from "react";
 
-const links = {
-    "/telegram.svg": "",
-    "/youtube.svg": "",
-    "/tic-tok.svg": "",
-    "/steam.svg": "https://store.steampowered.com/",
-    "/twich.svg": ""
-} as const;
+export interface ILink {
+    [key:string]: string
+}
 
 interface StudioLinksProps {
+    links: ILink
     className?: string,
     flexdefault?: boolean
 }
 
-const StudioLinks: React.FC<StudioLinksProps> = ({className, flexdefault}) => {
-
+const StudioLinks: React.FC<StudioLinksProps> = ({links, className, flexdefault}) => {
     return (
         <div 
         className={className} 
@@ -25,7 +21,7 @@ const StudioLinks: React.FC<StudioLinksProps> = ({className, flexdefault}) => {
             gap: "0.5vw"
         } : {}}
         >
-            {(Object.keys(links) as Array<keyof typeof links>).map((key, index) => 
+            {(Object.keys(links)).map((key, index) => 
                 <img key={index} src={key} onClick={() => window.open(links[key], "_blank")}/>
             )}
         </div>

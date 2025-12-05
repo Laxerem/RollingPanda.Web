@@ -99,7 +99,7 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
                                     style={{
                                         backgroundImage: `url(${props[currentNews].mainImage})`
                                     }} 
-                                    className="main-news-image" 
+                                    className="news-image main" 
                                     />
                                 </div>
                             </div>
@@ -108,19 +108,19 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
                     <div className="news">
                         <div className="news-background">
                             <div className="news-content-container">
-                                <div className="news-date">
-                                    <p>{currentDate}</p>
-                                    <span className="line"></span>
-                                </div>
-                                <div className="news-content">
+                                <div className="news-content-text">
+                                    <div className="news-date">
+                                        <p>{currentDate}</p>
+                                        <span className="line"></span>
+                                    </div>
                                     <p>{props[currentNews].content}</p>
+                                </div>
                                     <div
                                     style={{
                                         backgroundImage: `url(${props[currentNews].secondImage})`
                                     }} 
-                                    className="main-news-image" 
+                                    className="news-image" 
                                     />
-                                </div>
                             </div>
                         </div>
                     </div>

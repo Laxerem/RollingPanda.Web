@@ -1,17 +1,42 @@
 import type React from "react"
 import { useEffect, useState } from "react";
-import StudioLinks from "./StudioLinks";
+import StudioLinks, { type ILink } from "./StudioLinks";
 import { useNavigate } from "react-router-dom";
+import { headerLinksData } from "../data/links";
 
-type Menu = Record<string, string>;
+type ScrollAction = { scrollTo: string };
+type MenuAction = string | ScrollAction;
+type Menu = Record<string, MenuAction>;
 
 interface IHeaderCatalog {
+    links: ILink
     menu: Menu
 }
 
-const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
+const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+};
+
+const handleMenuClick = (action: MenuAction, navigate: Function) => {
+    if (typeof action === "string") {
+        navigate(action);
+    } else {
+        // если мы уже на этой странице → просто скроллим
+        if (location.pathname === "/") {
+            scrollToId(action.scrollTo);
+        } else {
+            // иначе: передаём параметр, чтобы Home потом скроллил сам
+            navigate(`/?scrollTo=${action.scrollTo}`);
+        }
+    }
+};
+
+
+const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({links, menu}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const navigate = useNavigate()
+
 
     return (
         <div className="header-catalog-mobile">
@@ -21,12 +46,12 @@ const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({menu}) => {
                     {Object.keys(menu).map((key, index) => 
                         <span 
                         key={index}
-                        onClick={() => navigate(menu[key])}
+                        onClick={() => handleMenuClick(menu[key], navigate)}
                         >
                             {key}
                         </span>
                     )}
-                    <StudioLinks className="menu-links"/>
+                    <StudioLinks className="menu-links" links={links}/>
                 </div>
             ) : (
                 <></>
@@ -61,11 +86,11 @@ const Header: React.FC = () => {
 
     // Data
     const menu: Menu = {
-        "Главная": "",
-        "О нас": "",
+        "Главная": { scrollTo: "home" },
+        "О нас": { scrollTo: "about_us" },
         "Анонсы": "",
         "Игры": "/games",
-        "Контакты": ""
+        "Контакты": { scrollTo: "footer" }
     }
 
     return (
@@ -76,15 +101,15 @@ const Header: React.FC = () => {
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
-                    <HeaderMobileCatalog menu={menu} />
+                    <HeaderMobileCatalog menu={menu} links={headerLinksData}/>
                 ) : (
                     <>
-                    <StudioLinks className="links"/>
+                    <StudioLinks className="links" links={headerLinksData}/>
                     <div className="site-catalog">
                         {Object.keys(menu).map((key, index) => (
                             <a
                             key={index}
-                            onClick={() => navigate(menu[key])}
+                            onClick={() => handleMenuClick(menu[key], navigate)}
                             >
                                 {key}
                             </a>
