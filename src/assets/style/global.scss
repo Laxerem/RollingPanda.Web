@@ -9,6 +9,8 @@ $footer-links-size: clamp(15px, 1vh + 1.2vw, 3vw);
 $footer-heading-font-size: clamp(10px, 0.6vh + 0.8vw, 0.9vw);
 $footer-text-font-size: clamp(12px, 0.6vh + 1vw, 2.5vw);
 
+$default-text-font-size: clamp(10px, 0.6vh + 0.8vw, 0.9vw);
+
 * {
     padding: 0;
     margin: 0;
@@ -64,13 +66,14 @@ header {
     display: flex;
     white-space: nowrap;
     z-index: 1000;
+    min-height: 50px;
 }
 
 header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(paper.png);
+    background: url(/paper.png);
     background-size: cover;
 
     mix-blend-mode: soft-light;
@@ -127,6 +130,7 @@ header::before {
 
 .logo-image {
     height: 4.7vh;
+    min-height: 30px;
 }
 
 .links {
@@ -139,6 +143,7 @@ header::before {
 
     img {
         transition: 0.5s;
+        min-height: 20px;
     }
 
     img:hover {
@@ -155,7 +160,7 @@ header::before {
 .catalog-icon {
     position: absolute;
     right: 0.1vw;
-    background: url(menu.svg) center no-repeat;
+    background: url(/menu.svg) center no-repeat;
     width: 50px;
     height: 100%;
     cursor: pointer;
@@ -200,21 +205,23 @@ header::before {
     padding-top: 10px;
 }
 
-footer {
-    height: 15vh;
-    background-color: #400468;
-}
-
-.footer-content::before {
+footer::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(paper.png);
+    background: url(/paper.png);
     background-size: cover;
 
     mix-blend-mode: soft-light;
     pointer-events: none; /* чтобы клики проходили */
     z-index: 1;
+}
+
+
+footer {
+    position: relative;
+    height: 15vh;
+    background-color: #400468;
 }
 
 .footer-content {
@@ -225,7 +232,7 @@ footer {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 1%;
+    padding: 1% 4%;
 
     >div {
         height: 100%;
@@ -236,10 +243,11 @@ footer {
     display: flex;
     align-items: center;
     height: 100%;
-    gap:2%;
+    gap:5%;
 
     img {
         height: 10vh;
+        min-height: 30px;
     }
 }
 
@@ -280,6 +288,48 @@ footer {
     height: 1px;
     border-bottom: 1px solid #4d0280;
     margin-left: 1%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    font-family: $second_font;
+    h4 {
+        font-size: $footer-text-font-size;
+    }
+    p {
+        font-size: $default-text-font-size;
+    }
+}
+
+.developers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    p {
+        cursor: pointer;
+
+        >span {
+            font-weight: 1000;
+        }
+    }
+
+    p:hover {
+        color: #da01dc;
+
+        >span {
+            color: #da01dc;
+        }
+    }
+}
+
+@media(max-width: 700px) {
+    footer {
+        padding: 2%;
+        height: auto;
+    }
 }
 
 @media(max-width: 600px) {
