@@ -2,7 +2,7 @@ import type React from "react"
 import { useEffect, useState } from "react";
 import StudioLinks, { type ILink } from "./StudioLinks";
 import { useNavigate } from "react-router-dom";
-import { headerLinksData } from "../data/links";
+import { useLinks } from "../hooks/useApiData";
 
 type ScrollAction = { scrollTo: string };
 type MenuAction = string | ScrollAction;
@@ -14,7 +14,7 @@ interface IHeaderCatalog {
 }
 
 
-const handleMenuClick = (action: MenuAction, navigate: Function) => {
+const handleMenuClick = (action: MenuAction, navigate: (to: string) => void) => {
     if (typeof action === "string") {
         navigate(action);
     } else {
@@ -63,7 +63,8 @@ const HeaderMobileCatalog: React.FC<IHeaderCatalog> = ({links, menu}) => {
 const Header: React.FC = () => {
     const [width, setWidth] = useState<number>(window.innerWidth);
     const [isMobile, setIsMobile] = useState<boolean>(false);
-    
+    const { headerLinks } = useLinks()
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -101,10 +102,10 @@ const Header: React.FC = () => {
                     <span>Rolling Panda</span>
                 </div>
                 {isMobile ? (
-                    <HeaderMobileCatalog menu={menu} links={headerLinksData}/>
+                    <HeaderMobileCatalog menu={menu} links={headerLinks}/>
                 ) : (
                     <>
-                    <StudioLinks className="links" links={headerLinksData}/>
+                    <StudioLinks className="links" links={headerLinks}/>
                     <div className="site-catalog">
                         {Object.keys(menu).map((key, index) => (
                             <a

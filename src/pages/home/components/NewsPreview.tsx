@@ -48,8 +48,6 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
     const [leftArrow, setLeftArrow] = useState<boolean>(false)
     const [rightArrow, setRightArrow] = useState<boolean>(props.length > 1)
 
-
-
     const handleArrowRightClick = () => {
         if (currentNews < props.length - 1) {
             setCurrentNews(currentNews + 1)
@@ -65,7 +63,25 @@ const NewsPreview: React.FC<INewsPreviewProps> = ({props}) => {
     useEffect(() => {
         setLeftArrow(currentNews > 0)
         setRightArrow(currentNews < props.length - 1)
-    }, [currentNews])
+    }, [currentNews, props.length])
+
+    // Проверка на пустой массив после всех хуков
+    if (!props || props.length === 0) {
+        return (
+            <div className="news-container">
+                <div className="news-container-content">
+                    <div className="news-heading">
+                        <div className="news-heading-content">
+                            <h1>Новости</h1>
+                        </div>
+                    </div>
+                    <div className="news-pages">
+                        <p>Новостей пока нет</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     let currentDate = props[currentNews].mainDate.toLocaleDateString("ru-RU", dateOptions).replace(",", "")
     currentDate = currentDate.charAt(0).toUpperCase() + currentDate.slice(1);

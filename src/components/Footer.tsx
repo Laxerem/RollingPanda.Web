@@ -1,8 +1,8 @@
 import type React from "react";
 import StudioLinks from "./StudioLinks";
-import { footerLinksData } from "../data/links";
 import { useEffect, useState } from "react";
 import { developersData } from "../data/developers";
+import { useLinks } from "../hooks/useApiData";
 
 export interface IDevelopers {
     name: string,
@@ -10,7 +10,11 @@ export interface IDevelopers {
     link?: string
 }
 
-const FooterContent: React.FC<React.PropsWithChildren> = ({children}) => {
+interface IFooterContentProps extends React.PropsWithChildren {
+    footerLinks: ILink
+}
+
+const FooterContent: React.FC<IFooterContentProps> = ({children, footerLinks}) => {
 
     return (
         <div className="footer-content">
@@ -20,10 +24,10 @@ const FooterContent: React.FC<React.PropsWithChildren> = ({children}) => {
                     <h1>Rolling Panda</h1>
                 </div>
             </div>
-            <StudioLinks 
-            className="footer-links" 
-            flexdefault 
-            links={footerLinksData}
+            <StudioLinks
+            className="footer-links"
+            flexdefault
+            links={footerLinks}
             style={{
                 justifyContent: "flex-end"
             }}
@@ -36,6 +40,7 @@ const FooterContent: React.FC<React.PropsWithChildren> = ({children}) => {
 const Footer: React.FC = () => {
     const [width, setWidth] = useState<number>(window.innerWidth);
     const [isMobile, setIsMobile] = useState<boolean>(false);
+    const { footerLinks } = useLinks();
 
     useEffect(() => {
         const handleResize = () => {
@@ -58,7 +63,7 @@ const Footer: React.FC = () => {
         <footer id="footer">
             {isMobile ? (
                 <>
-                <FooterContent />
+                <FooterContent footerLinks={footerLinks} />
                 <div className="text"
                 style={{
                     alignItems: "center"
@@ -82,7 +87,7 @@ const Footer: React.FC = () => {
                 </div>
                 </>
             ) : (
-                <FooterContent>
+                <FooterContent footerLinks={footerLinks}>
                     <div className="text"
                     style={{
                         alignItems: "flex-end"

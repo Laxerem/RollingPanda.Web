@@ -4,19 +4,23 @@ import HomePreview from "./components/HomePreview"
 import LittleAbout from "./components/LittleAbout"
 import GamesPreview from "./components/GamesPreview"
 import NewsPreview from "./components/NewsPreview"
-import { gamesPreview } from "../../data/games_preview"
-import { newsPreview } from "../../data/news_preview"
+import { useGamesPreview, useNews } from "../../hooks/useApiData"
 
-const HomePage: React.FC = () => (
-    <main>
-        <div className="preview-image">
-            <HomePreview />
-            <LittleAbout minimal_ratio={0.4} />
-        </div>
-        <GamesPreview games={gamesPreview} />
-        <NewsPreview props={newsPreview} />
-        {/* <AnnoouncementsContainer props={annoouncements} /> */}
-    </main>
-)
+const HomePage: React.FC = () => {
+    const { data: gamesPreview, loading: gamesLoading } = useGamesPreview()
+    const { data: newsPreview, loading: newsLoading } = useNews()
+
+    return (
+        <main>
+            <div className="preview-image">
+                <HomePreview />
+                <LittleAbout minimal_ratio={0.4} />
+            </div>
+            {gamesLoading ? <div>Загрузка игр...</div> : <GamesPreview games={gamesPreview} />}
+            {newsLoading ? <div>Загрузка новостей...</div> : <NewsPreview props={newsPreview} />}
+            {/* <AnnoouncementsContainer props={annoouncements} /> */}
+        </main>
+    )
+}
 
 export default HomePage

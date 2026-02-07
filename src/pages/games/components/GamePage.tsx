@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { games } from "../../../data/games";
+import { gamesPreviewFallback } from "../../../data/games_preview";
 import type { IGameCard } from "../../../components/GameCard";
 import '../game.scss'
 
 const GamePage = () => {
     const { id } = useParams();
-    const game = games.find(g => g.name === id) as IGameCard
+    const game = gamesPreviewFallback.find(g => g.name === id) as IGameCard
 
     return (
         <main>

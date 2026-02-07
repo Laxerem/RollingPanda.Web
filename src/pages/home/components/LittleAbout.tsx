@@ -1,31 +1,9 @@
 import type React from "react";
 import { useEffect, useMemo, useState } from "react";
-
-const blocks_content: Array<IAboutBlock> = [
-    {
-        heading: "Команда",
-        text: "В студии работает более тридцати студентов"
-    },
-    {
-        heading: "Game Jam",
-        text: "Мы провели 9 событий за 4 года"
-    },
-    {
-        heading: "",
-        text: ""
-    },
-    {
-        heading: "Таланты",
-        text: "Самому младшему участнику студии 15 лет"
-    },
-]
+import type { IAboutBlock } from "../../../data/about_blocks";
+import { useAboutBlocks } from "../../../hooks/useApiData";
 
 const BASE_SCREEN_WIDTH = 1800;
-
-interface IAboutBlock {
-    heading: string,
-    text: string
-}
 
 interface IAboutBlockProps {
     content: IAboutBlock,
@@ -62,7 +40,8 @@ interface LittleAboutProps {
 
 const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
     const [ratio, setRatio] = useState<number>(1)
-    
+    const { data: blocks_content, loading } = useAboutBlocks()
+
     useEffect(() => {
         const calculateRatio = () => {
             const currentWidth = window.innerWidth;
@@ -80,7 +59,11 @@ const LittleAbout: React.FC<LittleAboutProps> = ({minimal_ratio}) => {
         window.addEventListener("resize", calculateRatio);
 
         return () => window.removeEventListener("resize", calculateRatio);
-    }, []);
+    }, [minimal_ratio]);
+
+    if (loading) {
+        return <div id="about_us" className="about-content"><div className="about-content-heading"><h1>Про нас</h1></div><div className="little_about">Загрузка...</div></div>
+    }
 
     return (
         <div id="about_us" className="about-content">
