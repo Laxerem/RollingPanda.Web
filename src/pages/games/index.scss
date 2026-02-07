@@ -43,8 +43,8 @@ $card-mark-text-font-size: clamp(10px, 1vh + 1.1vw, 1.3vw);
     }
 
     h2 {
-        font-weight: 1;
         font-size: $card-author-font-size;
+        font-weight: 400;
     }
 
     aspect-ratio: 3 / 4;
