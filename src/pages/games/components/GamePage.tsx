@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import type { IGameCard } from "../../../components/GameCard";
 import { useGames } from "../../../hooks/useApiData";
 import '../game.scss'
 
