@@ -1,11 +1,33 @@
 import { useParams } from "react-router-dom";
-import { gamesPreviewFallback } from "../../../data/games_preview";
 import type { IGameCard } from "../../../components/GameCard";
+import { useGames } from "../../../hooks/useApiData";
 import '../game.scss'
 
 const GamePage = () => {
     const { id } = useParams();
-    const game = gamesPreviewFallback.find(g => g.name === id) as IGameCard
+    const { data: games, loading } = useGames();
+    const game = games.find(g => g.name === id);
+
+    if (loading) {
+        return (
+            <main>
+                <div className="game-container">
+                    <h1>Загрузка...</h1>
+                </div>
+            </main>
+        );
+    }
+
+    if (!game) {
+        return (
+            <main>
+                <div className="game-container">
+                    <h1>Игра не найдена</h1>
+                    <p>Игра с именем "{id}" не существует.</p>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main>
@@ -35,10 +57,10 @@ const GamePage = () => {
                 </div>
                 <div className="game-content-container">
                     <div>
-                        <div 
+                        <div
                         className="game-content-image"
                         style={{
-                            background: `url(/${game.backgroundImage}) no-repeat`,
+                            background: `url(${game.backgroundImage}) no-repeat`,
                             backgroundSize: "cover"
                         }}
                         />

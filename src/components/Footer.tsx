@@ -19,7 +19,7 @@ const FooterContent: React.FC<IFooterContentProps> = ({children, footerLinks}) =
     return (
         <div className="footer-content">
             <div className="footer-preview">
-                <img src="studio-logo.svg"/>
+                <img src="/studio-logo.svg"/>
                 <div className="footer-preview-text">
                     <h1>Rolling Panda</h1>
                 </div>
@@ -29,7 +29,7 @@ const FooterContent: React.FC<IFooterContentProps> = ({children, footerLinks}) =
             flexdefault
             links={footerLinks}
             style={{
-                justifyContent: "flex-end"
+                justifyContent: "center"
             }}
             />
             {children}
