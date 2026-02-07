@@ -1,5 +1,5 @@
 import type React from "react";
-import StudioLinks from "./StudioLinks";
+import StudioLinks, { type ILink } from "./StudioLinks";
 import { useEffect, useState } from "react";
 import { developersData } from "../data/developers";
 import { useLinks } from "../hooks/useApiData";

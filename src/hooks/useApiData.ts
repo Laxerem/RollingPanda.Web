@@ -10,6 +10,7 @@ import { gamesPreviewFallback } from '../data/games_preview';
 import { gamesFallback as gamesFullFallback } from '../data/games';
 import { headerLinksDataFallback, footerLinksDataFallback } from '../data/links';
 import { newsPreviewFallback } from '../data/news_preview';
+import { getImageUrl } from '../utils/imageUrl';
 
 // Hook for About Blocks
 export function useAboutBlocks() {
@@ -49,8 +50,8 @@ export function useGamesPreview() {
             .then(response => {
                 const mapped = response.map(item => ({
                     name: item.name,
-                    mainImage: item.mainImage,
-                    backgroundImage: item.backgroundImage,
+                    mainImage: getImageUrl(item.mainImage),
+                    backgroundImage: getImageUrl(item.backgroundImage),
                     marks: item.marks as Array<IGameMark>,
                     author: item.author,
                     description: item.description,
@@ -82,8 +83,8 @@ export function useGames() {
             .then(response => {
                 const mapped = response.map(item => ({
                     name: item.name,
-                    mainImage: item.mainImage,
-                    backgroundImage: item.backgroundImage,
+                    mainImage: getImageUrl(item.mainImage),
+                    backgroundImage: getImageUrl(item.backgroundImage),
                     marks: item.marks as Array<IGameMark>,
                     author: item.author,
                     description: item.description,
@@ -158,8 +159,8 @@ export function useNews() {
                     otherDate: new Date(item.date),
                     heading: item.title,
                     content: item.content,
-                    mainImage: item.image || '',
-                    secondImage: item.image || '' // API возвращает только одно изображение
+                    mainImage: getImageUrl(item.mainImageUrl || item.image),
+                    secondImage: getImageUrl(item.secondImageUrl || item.image)
                 }));
                 setData(mapped);
                 setLoading(false);

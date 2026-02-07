@@ -79,6 +79,8 @@ class ApiService {
             date: string;
             content: string;
             image?: string;
+            mainImageUrl?: string;
+            secondImageUrl?: string;
         }>>('/news');
     }
 }
